@@ -1,0 +1,2 @@
+C:\Users\ibati\OneDrive\Рабочий стол\курсач4 курс\biblia курсач\UnitTestProject1\obj\Debug\UnitTestProject1.csproj.AssemblyReference.cache
+C:\Users\ibati\OneDrive\Рабочий стол\курсач4 курс\biblia курсач\UnitTestProject1\obj\Debug\UnitTestProject1.csproj.CoreCompileInputs.cache

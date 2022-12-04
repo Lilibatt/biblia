@@ -1,0 +1,69 @@
+﻿@model IEnumerable<biblia_курсач.Models.books>
+
+@{
+    ViewBag.Title = "BOOKS";
+}
+
+<h2>BOOKS</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @*@Html.DisplayNameFor(model => model.name)*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author)
+        </th>
+        <th>
+            @Html.ActionLink("Publishing_type", "Index", new { sortOrder = ViewBag.TypeSortParm })
+            @*@Html.DisplayNameFor(model => model.publication_type.publication_type1)*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.publishingg.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.storage_location.storage_location1)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.publication_type.publication_type1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.publishingg.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.storage_location.storage_location1)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

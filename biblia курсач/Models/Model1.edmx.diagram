@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fdfa82acf8d2412a95253ffb8e82675b" Name="Diagram1">
+        <EntityTypeShape EntityType="bibliaModel.books" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="bibliaModel.issuance_of_books" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bibliaModel.librarian" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bibliaModel.publication_type" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bibliaModel.publishingg" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bibliaModel.reader" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bibliaModel.storage_location" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="bibliaModel.FK_books_publication_type" ManuallyRouted="false" />
+        <AssociationConnector Association="bibliaModel.FK_books_publishingg" ManuallyRouted="false" />
+        <AssociationConnector Association="bibliaModel.FK_books_storage_location" ManuallyRouted="false" />
+        <AssociationConnector Association="bibliaModel.FK_issuance_of_books_books1" ManuallyRouted="false" />
+        <AssociationConnector Association="bibliaModel.FK_issuance_of_books_librarian" ManuallyRouted="false" />
+        <AssociationConnector Association="bibliaModel.FK_issuance_of_books_reader" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

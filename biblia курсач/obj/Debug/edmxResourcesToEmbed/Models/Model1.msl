@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище bibliaModelContainer" CdmEntityContainer="bibliaEntities">
+    <EntitySetMapping Name="books">
+      <EntityTypeMapping TypeName="bibliaModel.books">
+        <MappingFragment StoreEntitySet="books">
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="id_publishing" ColumnName="id_publishing" />
+          <ScalarProperty Name="id_publishing_type" ColumnName="id_publishing_type" />
+          <ScalarProperty Name="id_storage_location" ColumnName="id_storage_location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="issuance_of_books">
+      <EntityTypeMapping TypeName="bibliaModel.issuance_of_books">
+        <MappingFragment StoreEntitySet="issuance_of_books">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_library" ColumnName="id_library" />
+          <ScalarProperty Name="id_reader" ColumnName="id_reader" />
+          <ScalarProperty Name="date_of_issue" ColumnName="date_of_issue" />
+          <ScalarProperty Name="return_date" ColumnName="return_date" />
+          <ScalarProperty Name="id_book" ColumnName="id_book" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="librarian">
+      <EntityTypeMapping TypeName="bibliaModel.librarian">
+        <MappingFragment StoreEntitySet="librarian">
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publication_type">
+      <EntityTypeMapping TypeName="bibliaModel.publication_type">
+        <MappingFragment StoreEntitySet="publication_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="publication_type1" ColumnName="publication_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publishingg">
+      <EntityTypeMapping TypeName="bibliaModel.publishingg">
+        <MappingFragment StoreEntitySet="publishingg">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="city" ColumnName="city" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reader">
+      <EntityTypeMapping TypeName="bibliaModel.reader">
+        <MappingFragment StoreEntitySet="reader">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="storage_location">
+      <EntityTypeMapping TypeName="bibliaModel.storage_location">
+        <MappingFragment StoreEntitySet="storage location">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="storage_location1" ColumnName="storage location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,58 @@
+﻿@model biblia_курсач.Models.issuance_of_books
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>issuance_of_books</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.date_of_issue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_of_issue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.return_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.return_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.books.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.books.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.librarian.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.librarian.FIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reader.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reader.FIO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

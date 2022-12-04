@@ -1,0 +1,48 @@
+﻿@model biblia_курсач.Models.librarian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>librarian</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.photo)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.photo)*@
+            @{ var item = Model;
+                byte[] photo = item.photo;
+                string imageSrc = null;
+                if (photo != null)
+                {
+                    MemoryStream ms = new MemoryStream();
+                    ms.Write(photo, 0, photo.Length);
+                    string imageBase64 = Convert.ToBase64String(ms.ToArray());
+                    imageSrc = string.Format("data:image/jpg;base64,{0}", imageBase64);
+                    string base64String = Convert.ToBase64String(photo, 0, photo.Length);
+                }
+            }
+
+            <img src="@imageSrc" alt="Image" width="150" height="100" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

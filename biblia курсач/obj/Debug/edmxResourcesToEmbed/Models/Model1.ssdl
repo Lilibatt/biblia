@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище bibliaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="books">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="author" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_publishing" Type="int" Nullable="false" />
+    <Property Name="id_publishing_type" Type="int" Nullable="false" />
+    <Property Name="id_storage_location" Type="int" Nullable="false" />
+    <Property Name="photo" Type="image" />
+  </EntityType>
+  <EntityType Name="issuance_of_books">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id_library" Type="int" Nullable="false" />
+    <Property Name="id_reader" Type="int" Nullable="false" />
+    <Property Name="date_of_issue" Type="date" Nullable="false" />
+    <Property Name="return_date" Type="date" Nullable="false" />
+    <Property Name="id_book" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="librarian">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="FIO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="photo" Type="image" />
+  </EntityType>
+  <EntityType Name="publication_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="publication_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="publishingg">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="reader">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="FIO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="phone_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="storage location">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="storage location" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_books_publication_type">
+    <End Role="publication_type" Type="Self.publication_type" Multiplicity="1" />
+    <End Role="books" Type="Self.books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publication_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="books">
+        <PropertyRef Name="id_publishing_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_books_publishingg">
+    <End Role="publishingg" Type="Self.publishingg" Multiplicity="1" />
+    <End Role="books" Type="Self.books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publishingg">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="books">
+        <PropertyRef Name="id_publishing" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_books_storage location">
+    <End Role="storage location" Type="Self.storage location" Multiplicity="1" />
+    <End Role="books" Type="Self.books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="storage location">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="books">
+        <PropertyRef Name="id_storage_location" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_issuance_of_books_books1">
+    <End Role="books" Type="Self.books" Multiplicity="1" />
+    <End Role="issuance_of_books" Type="Self.issuance_of_books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="books">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="issuance_of_books">
+        <PropertyRef Name="id_book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_issuance_of_books_librarian">
+    <End Role="librarian" Type="Self.librarian" Multiplicity="1" />
+    <End Role="issuance_of_books" Type="Self.issuance_of_books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="librarian">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="issuance_of_books">
+        <PropertyRef Name="id_library" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_issuance_of_books_reader">
+    <End Role="reader" Type="Self.reader" Multiplicity="1" />
+    <End Role="issuance_of_books" Type="Self.issuance_of_books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reader">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="issuance_of_books">
+        <PropertyRef Name="id_reader" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище bibliaModelContainer">
+    <EntitySet Name="books" EntityType="Self.books" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="issuance_of_books" EntityType="Self.issuance_of_books" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="librarian" EntityType="Self.librarian" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="publication_type" EntityType="Self.publication_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="publishingg" EntityType="Self.publishingg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reader" EntityType="Self.reader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="storage location" EntityType="Self.storage location" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_books_publication_type" Association="Self.FK_books_publication_type">
+      <End Role="publication_type" EntitySet="publication_type" />
+      <End Role="books" EntitySet="books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_books_publishingg" Association="Self.FK_books_publishingg">
+      <End Role="publishingg" EntitySet="publishingg" />
+      <End Role="books" EntitySet="books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_books_storage location" Association="Self.FK_books_storage location">
+      <End Role="storage location" EntitySet="storage location" />
+      <End Role="books" EntitySet="books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_issuance_of_books_books1" Association="Self.FK_issuance_of_books_books1">
+      <End Role="books" EntitySet="books" />
+      <End Role="issuance_of_books" EntitySet="issuance_of_books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_issuance_of_books_librarian" Association="Self.FK_issuance_of_books_librarian">
+      <End Role="librarian" EntitySet="librarian" />
+      <End Role="issuance_of_books" EntitySet="issuance_of_books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_issuance_of_books_reader" Association="Self.FK_issuance_of_books_reader">
+      <End Role="reader" EntitySet="reader" />
+      <End Role="issuance_of_books" EntitySet="issuance_of_books" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
